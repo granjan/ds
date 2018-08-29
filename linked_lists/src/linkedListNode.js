@@ -3,4 +3,8 @@ export default class LinkedListNode {
 		this.data = data;
 		this.next = next;
 	}
+
+	printNode() {
+		console.log(this.data);
+	}
 }

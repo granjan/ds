@@ -1,12 +1,9 @@
-const LinkedListNode = requrie('./linkedListNode');
+import LinkedListNode from './linkedListNode';
 
 export default class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
-    if (typeof dataList === 'Array' && dataList.length) {
-      dataList.map((data) => new LinkedListNode(data))
-    }
   }
 
   createListFromArray(dataList = []) {
@@ -24,10 +21,28 @@ export default class LinkedList {
 
   addNodeToTail(data) {
     const newNode = new LinkedListNode(data);
+    if (!this.tail) {
+      this.tail = newNode;
+    }
+    if (!this.head) {
+
+    }
     return this;
   }
 
   deleteNode(data) {
     return this;
+  }
+
+  printList() {
+    if (!this.head) {
+      return;
+    }
+    let currentNode = this.head;
+    while(currentNode) {
+      currentNode.printNode();
+      currentNode = currentNode.next;
+    }
+    return;
   }
 }
