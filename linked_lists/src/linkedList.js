@@ -8,30 +8,45 @@ export default class LinkedList {
 
   createListFromArray(dataList = []) {
     dataList.forEach((data) => this.addNodeToHead(data));
-    return this;
   }
 
   addNodeToHead(data) {
     const newNode = new LinkedListNode(data, this.head);
     this.head = newNode;
-    if (!this.tail)
+    if (!this.tail) {
       this.tail = newNode;
-    return this;
+    }
   }
 
   addNodeToTail(data) {
     const newNode = new LinkedListNode(data);
-    if (!this.tail) {
+    if (this.tail) {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    } else {
       this.tail = newNode;
     }
-    if (!this.head) {
 
+    if (!this.head) {
+      this.head = this.tail;
     }
-    return this;
   }
 
   deleteNode(data) {
-    return this;
+    if (!this.head) {
+      return;
+    }
+    if (this.head.data === data) {
+      this.head = null;
+      this.tail = null;
+      return;
+    }
+    let currentNode = this.head;
+    while(currentNode.next) {
+      if (currentNode.data === data) {
+
+      }
+    }
   }
 
   printList() {
@@ -43,6 +58,5 @@ export default class LinkedList {
       currentNode.printNode();
       currentNode = currentNode.next;
     }
-    return;
   }
 }
